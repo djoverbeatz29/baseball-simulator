@@ -18,13 +18,17 @@ class Simulator {
     }
     
     simulate(its=100) {
+        const gameLog = [];
         let wins = 0;
         for (let i = 0; i < its; i++) {
             const baseState = JSON.parse(JSON.stringify(this));
             let game = new Game(baseState);
-            wins += game.playGame();
+            const rez = game.playGame();
+            wins += rez.winner;
+            gameLog.push(rez);
         }
         console.log(`The home team won ${wins} out of ${its}, for a winning percentage of ${wins / its * 100}%!`);
+        return gameLog;
     }
 
 }

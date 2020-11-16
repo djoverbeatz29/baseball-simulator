@@ -81,7 +81,8 @@ class Game {
         while (this.gameOn) {
             this.atBatResult();
         }
-        const result = this.score[0] > this.score[1] ? 0 : 1;
+        const finalScore = JSON.parse(JSON.stringify(this.score));
+        const winner = this.score[0] > this.score[1] ? 0 : 1;
         this.setGameState({
             inning: 1,
             outs: 0,
@@ -90,7 +91,7 @@ class Game {
             score: [0,0],
             gameOn: true
         });
-        return result;
+        return {finalScore, winner};
     }
     
     setGameState(params) {
