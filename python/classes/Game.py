@@ -51,13 +51,8 @@ class Game:
             self.walker()
         else:
             self.hitter(result)
-        if (self.inning >= 9
-            and ((self.outs >= 3 and self.away_or_home == 0)
-            or self.away_or_home == 1)
-            and self.score[0] < self.score[1])
-            or (self.inning >= 9
-            and self.outs >= 3
-            and self.score[0] > self.score[1]):
+        if (self.inning >= 9 and ((self.outs >= 3 and self.away_or_home == 0) or self.away_or_home == 1) and self.score[0] < self.score[1]) or
+        (self.inning >= 9 and self.outs >= 3 and self.score[0] > self.score[1]):
             self.game_on = False
         if self.outs >= 3:
             if self.away_or_home == 1:
@@ -65,7 +60,7 @@ class Game:
             self.outs = 0
             self.current_player[self.away_or_home] = (self.current_player[self.away_or_home] + 1) % 9
             self.away_or_home = (self.away_or_home + 1) % 2
-            bases = [0, 0, 0]
+            self.bases = [0, 0, 0]
 
     def play_game(self):
         while self.game_on:
