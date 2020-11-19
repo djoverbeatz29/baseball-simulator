@@ -10,11 +10,9 @@ class Simulator:
         game_log = []
         wins = 0
         for i in range(its):
-            game = Game(dir(self))
+            game = Game([getattr(self, attr) for attr in dir(g) if "__" not in attr])
             result = game.play_game()
             wins += result.winner
             game_log.append(result)
-        }
         print(f"The home team won ${wins} out of ${its}, for a winning percentage of {wins / its * 100}%!")
         return game_log
-    }
