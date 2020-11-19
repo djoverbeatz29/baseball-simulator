@@ -18,7 +18,7 @@ class Game:
         self.game_on=game_on
         self.current_player=[0,0]
 
-    def walker:
+    def walker(self):
         self.bases.append(0)
         self.bases[0] += 1
         for i in range(3):
@@ -51,8 +51,7 @@ class Game:
             self.walker()
         else:
             self.hitter(result)
-        if (self.inning >= 9 and ((self.outs >= 3 and self.away_or_home == 0) or self.away_or_home == 1) and self.score[0] < self.score[1]) or
-        (self.inning >= 9 and self.outs >= 3 and self.score[0] > self.score[1]):
+        if (self.inning >= 9 and ((self.outs >= 3 and self.away_or_home == 0) or self.away_or_home == 1) and self.score[0] < self.score[1]) or (self.inning >= 9 and self.outs >= 3 and self.score[0] > self.score[1]):
             self.game_on = False
         if self.outs >= 3:
             if self.away_or_home == 1:
