@@ -42,7 +42,7 @@ class Game:
         self.bases = self.bases[:3]
         self.score[self.away_or_home] += runs
 
-    def at_bat(self):
+    def handle_at_bat(self):
         player=self.teams[self.away_or_home][self.current_player]
         result = player.at_bat()
         if result == 'OUT':
